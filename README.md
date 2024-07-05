@@ -1,6 +1,7 @@
 # Flask-Sanitize-Escape 🛡️
 
 [![PyPI Version](https://img.shields.io/pypi/v/flask-sanitize-escape)](https://pypi.org/project/flask-sanitize-escape/)
+[![Github Build](https://github.com/mayur19/flask-sanitize-escape/actions/workflows/publish_to_pypi.yml/badge.svg)](https://github.com/mayur19/flask-sanitize-escape/actions/workflows/publish_to_pypi.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-3.x-blue.svg)](https://www.python.org/downloads/release/python-3116/)
 [![Flask Version](https://img.shields.io/badge/flask-2.x-green.svg)](https://flask.palletsprojects.com/en/2.3.x/)
