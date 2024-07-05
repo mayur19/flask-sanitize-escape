@@ -12,11 +12,12 @@ A Flask middleware extension for automatic input sanitization, guarding against 
 
 ## Key Features
 
-- **Effortless Integration:**  Activate the middleware with a single line of code.
+- **Effortless Integration:**  Works in the middleware
 - **Automatic Protection:** Sanitizes incoming request data without requiring manual intervention in your route handlers.
 - **Comprehensive Coverage:** Scrubs query parameters, form data, and JSON payloads.
 - **Targeted Defense:** Neutralizes malicious code through HTML entity encoding and regex-based filtering.
 - **Customizable:** Easily adapt the sanitization logic to your specific application's needs.
+- **Custom Escaping:** Seamless custom escaping for specific characters as you need.
 
 ## Installation
 
@@ -29,9 +30,33 @@ pip install flask-sanitize-escape
 #### 1. Activate Middleware:
 ```python
 from flask import Flask
-from flask_sanitize_escape import SanitizeEscapeExtension
+from flask_sanitize_escape import SanitizeEscapeExtension  
 
 app = Flask(__name__)
-app.wsgi_app = SanitizeEscapeExtension.Middleware(app.wsgi_app)
+
+# Initialize the extension with options
+sanitize_extension = SanitizeEscapeExtension(
+    app, sanitize_quotes=True, custom_characters=["$", "#", "%"]
+)
+
+sanitize_extension.init_app(app) # Register the middleware
 ```
 #### 2. Relax! Your application's input data is now automatically sanitized before it reaches your route handlers.
+
+## Example
+```python
+@app.route('/submit', methods=['POST'])
+def submit_data():
+    data = request.get_json()  # Data is already sanitized
+
+    # Safely process the sanitized data...
+```
+
+## Customization
+Stay tune for upcoming version
+
+## Contributing
+We welcome contributions! Feel free to open issues for bugs or feature requests, or submit pull requests with improvements.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.

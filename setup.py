@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='flask-sanitize-escape',
-    version='0.0.1',
+    version='0.0.2',
     description='Sanitization functions for Flask backend input to prevent XSS, RCE, SQLi and many others',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
