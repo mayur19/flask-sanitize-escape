@@ -41,13 +41,21 @@ sanitize_extension = SanitizeEscapeExtension(
 
 sanitize_extension.init_app(app) # Register the middleware
 ```
+---
+**NOTE**
+
+It is suggested to use ```sanitize_quotes=True```
+
+---
 #### 2. Relax! Your application's input data is now automatically sanitized before it reaches your route handlers.
 
 ## Example
 ```python
 @app.route('/submit', methods=['POST'])
 def submit_data():
-    data = request.get_json()  # Data is already sanitized
+    data = g.sanitized_json  # accessing JSON from request.get_json()
+    data = g.sanitized_args  # accessing arguments from request.args
+    data = g.sanitized_form  # accessing values from request.form
 
     # Safely process the sanitized data...
 ```
